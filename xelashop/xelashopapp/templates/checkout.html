@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fenix&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Felipa&display=swap" rel="stylesheet">
+    <title>Checkout</title>
+</head>
+<body>
+<style>
+    h1 {
+        font-size: 50px;
+    }
+
+    p {
+        font-size: 25px;
+    }
+
+    html, body {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        background: linear-gradient(90deg, rgba(244, 192, 192, 1) 0%, rgba(244, 192, 192, 1) 50%, rgba(198, 164, 164, 1) 50%, rgba(198, 164, 164, 1) 100%);
+    }
+
+    footer {
+        margin-top: auto;
+    }
+
+    * {
+        scroll-behavior: smooth;
+    }
+
+    .img-fluid {
+        width: 500px;
+        height: 600px;
+        border-radius: 5%;
+    }
+
+    .navbar-brand {
+        font-size: 80px;
+        font-family: 'Fenix', serif;
+        margin: 0 !important;
+        font-weight: 500;
+    }
+
+    .navbar-nav .nav-link {
+        padding: 10px 30px;
+    }
+
+    .navbar-collapse {
+        display: flex;
+    }
+
+    .navbar svg {
+        width: 40px;
+        height: 40px;
+    }
+
+    .nav-link {
+        font-size: 24px;
+        padding-left: 70px !important;
+        padding-right: 30px !important;
+        font-weight: 500;
+        min-width: 220px;
+    }
+
+    .nav-link.active {
+        font-weight: 600;
+    }
+
+    .bg-body-tertiary {
+        background-color: transparent !important;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    th, td {
+        border: 1px solid #ccc;
+        padding: 10px;
+        text-align: left;
+    }
+
+    .p-5 {
+        padding: 5px;
+    }
+
+    .product-item {
+        display: flex;
+        align-items: center;
+    }
+
+    .product-image {
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+        margin-right: 10px;
+    }
+
+    .product-details {
+        display: flex;
+        flex-direction: column;
+    }
+
+    h4 {
+        margin: 0;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    .product-item img {
+        height: 120px;
+        width: 100px;
+    }
+
+    table {
+        border: 3px solid white;
+    }
+
+    thead {
+        border-bottom: 2px solid white;
+    }
+
+    tr {
+        border: 3px solid white;
+    }
+
+    .row > * {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+</style>
+{#<header>#}
+{#    <div class="container ">#}
+{#        <nav class="navbar navbar-expand-lg bg-body-tertiary">#}
+{#            <div class="container-fluid ">#}
+{#                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">#}
+{#                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>#}
+{#                </svg>#}
+{#                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"#}
+{#                        data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"#}
+{#                        aria-label="Toggle navigation">#}
+{#                    <span class="navbar-toggler-icon"></span>#}
+{#                </button>#}
+{#                <div class="collapse navbar-collapse justify-content-center " id="navbarNavAltMarkup">#}
+{#                    <div class="navbar-nav justify-content-evenly align-items-center">#}
+{#                        <a class="nav-link" aria-current="page" href="{% url 'index' %}">Home</a>#}
+{#                        <a class="nav-link " href="{% url  'men' %}">Shop</a>#}
+{#                        <a class="navbar-brand" href="{% url 'index' %}">Xela</a>#}
+{#                        <a class="nav-link" href="#">Categories</a>#}
+{#                        <a class="nav-link" href="#">About</a>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16">#}
+{#                    <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/>#}
+{#                </svg>#}
+{#            </div>#}
+{#        </nav>#}
+{#    </div>#}
+{#</header>#}
+
+{#<div class="container">#}
+{#    <h1 class="text-center fs-1">Checkout</h1>#}
+{#    <form action="{% url 'process_order' %}" method="POST">#}
+{#        {% csrf_token %}#}
+{#        <table class="rounded">#}
+{#            <thead class="rounded">#}
+{#            <tr>#}
+{#                <th class="text-center" scope="col">Product</th>#}
+{#                <th class="text-center" scope="col">Quantity</th>#}
+{#                <th class="text-center" scope="col">Size</th>#}
+{#                <th class="text-center" scope="col">Color</th>#}
+{#                <th class="text-center" scope="col">Price</th>#}
+{#            </tr>#}
+{#            </thead>#}
+{#            <tbody>#}
+{#            {% for cart_item in cart_items %}#}
+{#                <tr class="p-5">#}
+{#                    <td>#}
+{#                        <div class="product-item">#}
+{#                            <img src="{{ MEDIA_URL }}{{ cart_item.product.photo.url }}" alt="{{ item.product.name }}"#}
+{#                                 class="img-fluid">#}
+{##}
+{#                            <div class="product-details">#}
+{#                                <h4 class="p-3 fs-5">{{ cart_item.product.name }}</h4>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </td>#}
+{#                    <td class="fs-4 text-center"><b class="item-quantity">{{ cart_item.product.quantity }}</b></td>#}
+{#                    <td class="fs-4 text-center"><b>#}
+{#                        {% for size in item.sizes.all %}#}
+{#                            {{ size }}#}
+{#                            {% if not forloop.last %}, {% endif %}#}
+{#                        {% endfor %}#}
+{#                    </b></td>#}
+{#                    <td class="fs-4 text-center"><b>#}
+{#                        {% for color in item.colors.all %}#}
+{#                            {{ color.name }}#}
+{#                            {% if not forloop.last %}, {% endif %}#}
+{#                        {% endfor %}#}
+{#                    </b></td>#}
+{#                    <td class="fs-4 text-center"><b class="item-price">{{ cart_item.product.price }} $</b></td>#}
+{##}
+{#                </tr>#}
+{#            {% endfor %}#}
+{#            </tbody>#}
+{#        </table>#}
+{#        <div class="container mt-3 p-4">#}
+{#            <form action="{% url 'process_order' %}" method="post">#}
+{#                {% csrf_token %}#}
+{#                <div class="row p-1">#}
+{#                    <div class="col">#}
+{#                        <label for="name" class="form-label fs-4">Name & Surname</label>#}
+{#                        <input type="text" class="form-control rounded-pill" placeholder="ex. John Doe"#}
+{#                               aria-label="NameSurname" style="width: 500px;height: 50px" required>#}
+{#                    </div>#}
+{#                    <div class="col">#}
+{#                        <label for="name" class="form-label fs-4">Your Card Number</label>#}
+{#                        <input type="text" class="form-control rounded-pill" placeholder="ex. XXXX-XXXX-XXXX-XXXX"#}
+{#                               aria-label="CardNumber" style="width: 500px;height: 50px" required>#}
+{#                    </div>#}
+{#                    <div class="col">#}
+{#                        <label for="shipping_address" class="form-label mt-2 fs-4">Address</label>#}
+{#                        <input type="text" class="form-control rounded-pill" id="shipping_address"#}
+{#                               name="shipping_address" placeholder="ex. Partizanski Odredi 16"#}
+{#                               aria-label="shipping_address" style="width: 500px;height: 50px" required>#}
+{#                    </div>#}
+{#                    <div class="col">#}
+{#                        <label for="CVV" class="form-label mt-2 fs-4">CVV</label>#}
+{#                        <input type="text" class="form-control rounded-pill" placeholder="ex. XXX" aria-label="CVV"#}
+{#                               style="width: 500px;height: 50px" required>#}
+{#                    </div>#}
+{#                    <div class="col">#}
+{#                        <label for="name" class="form-label mt-2 fs-4">E-mail</label>#}
+{#                        <input type="text" class="form-control rounded-pill" placeholder="ex. example@gmail.com"#}
+{#                               aria-label="E-mail" style="width: 500px;height: 50px" required>#}
+{#                    </div>#}
+{#                    <div class="col">#}
+{#                        <div class="d-md-flex justify-content-between">#}
+{#                            <div>#}
+{#                                <label for="total_price" class="form-label mt-1 fs-4">#}
+{#                                    <p class="text-start m-3" id="total-price">Total price: </p>#}
+{#                                </label>#}
+{#                                <input type="hidden" name="total_price" value="{{ total_price }}">#}
+{#                                <input type="text" hidden="hidden" class="form-control" id="total_price"#}
+{#                                       name="total_price" aria-label="total_price" value="{{ total_price }}">#}
+{#                            </div>#}
+{#                            <div>#}
+{#                                <button type="submit" class="btn btn-dark mt-3  rounded-pill fs-5"#}
+{#                                        style="margin-right: 50px">Buy Now#}
+{#                                </button>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <!-- Payment Method -->#}
+{#                        <div class="mb-5 mt-1" style="width: 300px">#}
+{#                            <label for="payment_method" class="form-label fs-4">Payment Method</label>#}
+{#                            <select class="form-select rounded-pill" id="payment_method" name="payment_method" required>#}
+{#                                <option value="Credit Card">Credit Card</option>#}
+{#                                <option value="PayPal">PayPal</option>#}
+{#                                <option value="Bank Transfer">Bank Transfer</option>#}
+{#                            </select>#}
+{#                        </div>#}
+{#                 </form>#}
+{#        </div>#}
+<header>
+    <div class="container ">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid ">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                </svg>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-center " id="navbarNavAltMarkup">
+                    <div class="navbar-nav justify-content-evenly align-items-center">
+                        <a class="nav-link" aria-current="page" href="{% url 'index' %}">Home</a>
+                        <a class="nav-link " href="{% url  'men' %}">Shop</a>
+                        <a class="navbar-brand" href="{% url 'index' %}">Xela</a>
+                        <a class="nav-link" href="#">Categories</a>
+                        <a class="nav-link" href="#">About</a>
+                    </div>
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16">
+                    <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/>
+                </svg>
+            </div>
+        </nav>
+    </div>
+</header>
+{% block content %}
+    <h1 class="text-center fs-1">Checkout</h1>
+    <div class="container">
+        {% if cart_items %}
+            <table class="rounded">
+                <thead>
+                <tr>
+                    <th class="text-center" scope="col">Product</th>
+                    <th class="text-center" scope="col">Name</th>
+                    <th class="text-center" scope="col">Quantity</th>
+                    <th class="text-center" scope="col">Price</th>
+                    <th class="text-center" scope="col">Remove Item</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for item in cart_items %}
+                    <tr>
+                        <th scope="row">
+                            <img src="{{ MEDIA_URL }}{{ item.product.photo.url }}" class="img-fluid"
+                                 style="height: 150px; width: 120px;" alt="{{ item.product.name }}">
+                        </th>
+                        <td class="fs-5 text-center">{{ item.product.name }}</td>
+                        <td class="fs-5 text-center">{{ item.quantity }}</td>
+                        <td class="fs-5 text-center totalPrice">{{ item.product.price|multiply:item.quantity }} $</td>
+                        <td class="fs-5 text-center">
+                            <form action="{% url 'delete_cart_item' item.id %}" method="POST">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            </div>
+        {% else %}
+            <p class="text-center fs-4">Your cart is empty :(</p>
+        {% endif %}
+{% endblock %}
+{#<h2 class="d-inline">Total Price:</h2>#}
+{#<h2 class="d-inline">{{ total }} $</h2>#}
+
+
+<div class="container mt-1 p-5">
+    <form action="{% url 'process_order' %}" method="post">
+        {% csrf_token %}
+        <div class="row p-1">
+            <div class="col">
+                <label for="name" class="form-label fs-4">Name & Surname</label>
+                <input type="text" class="form-control rounded-pill" placeholder="ex. John Doe"
+                       aria-label="NameSurname" style="width: 500px;height: 50px" required>
+            </div>
+            <div class="col">
+                <label for="name" class="form-label fs-4">Your Card Number</label>
+                <input type="text" class="form-control rounded-pill" placeholder="ex. XXXX-XXXX-XXXX-XXXX"
+                       aria-label="CardNumber" style="width: 500px;height: 50px" required>
+            </div>
+            <div class="col">
+                <label for="shipping_address" class="form-label mt-2 fs-4">Address</label>
+                <input type="text" class="form-control rounded-pill" id="shipping_address"
+                       name="shipping_address" placeholder="ex. Partizanski Odredi 16"
+                       aria-label="shipping_address" style="width: 500px;height: 50px" required>
+            </div>
+            <div class="col">
+                <label for="CVV" class="form-label mt-2 fs-4">CVV</label>
+                <input type="text" class="form-control rounded-pill" placeholder="ex. XXX" aria-label="CVV"
+                       style="width: 500px;height: 50px" required>
+            </div>
+            <div class="col">
+                <label for="name" class="form-label mt-2 fs-4">E-mail</label>
+                <input type="text" class="form-control rounded-pill" placeholder="ex. example@gmail.com"
+                       aria-label="E-mail" style="width: 500px;height: 50px" required>
+            </div>
+            <div class="col">
+                <div class="d-md-flex justify-content-between">
+                    <div>
+                        <label for="total_price" class="form-label mt-1 fs-4">
+                            <p class="text-start m-4" id="total-price">Total price: </p>
+                        </label>
+                        <input type="hidden" name="total_price" value="{{ total_price }}">
+                        <input type="text" hidden="hidden" class="form-control" id="total_price"
+                               name="total_price" aria-label="total_price" value="{{ total_price }}">
+                    </div>
+                    <div>
+                        <a href="{% url 'final_site' %}" class="d-flex text-decoration-none">
+                            <button id="button" class="btn btn-dark rounded-pill text-white m-4" style="margin-right: 100px!important;">Buy Now
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Payment Method -->
+        <div class="mb-5 mt-1" style="width: 300px">
+            <label for="payment_method" class="form-label fs-4">Payment Method</label>
+            <select class="form-select rounded-pill" id="payment_method" name="payment_method" required>
+                <option value="Credit Card">Credit Card</option>
+                <option value="PayPal">PayPal</option>
+                <option value="Bank Transfer">Bank Transfer</option>
+            </select>
+        </div>
+    </form>
+</div>
+
+<script>
+ var totalPrice = parseFloat(document.getElementById('total_price').value);
+ document.getElementById('total-price').textContent += ' $' + totalPrice.toFixed(2);
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+</body>
+</html>

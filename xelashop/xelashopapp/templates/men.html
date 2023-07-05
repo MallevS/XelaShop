@@ -1,0 +1,311 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fenix&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Felipa&display=swap" rel="stylesheet">
+    <title>Men`s Shopping</title>
+</head>
+<body>
+<style>
+    body {
+        background-color: #C6A4A4;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .navbar-brand {
+        font-size: 80px;
+        font-family: 'Fenix', serif;
+        margin: 0 !important;
+        font-weight: 500;
+    }
+
+    .navbar-nav .nav-link {
+        padding: 10px 40px !important;
+    }
+
+    .navbar-collapse {
+        display: flex;
+    }
+
+    .navbar svg {
+        width: 40px;
+        height: 35px;
+    }
+
+    .input-group:not(.has-validation)>:not(:last-child):not(.dropdown-toggle):not(.dropdown-menu):not(.form-floating) {
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+}
+
+    .nav-link {
+        font-size: 24px;
+        padding-left: 50px !important;
+        padding-right: 20px !important;
+        font-weight: 500;
+        min-width: 190px;
+    }
+
+    .nav-link.active {
+        font-weight: 600;
+    }
+
+    .bg-body-tertiary {
+        background-color: transparent !important;
+    }
+
+    .specialImage {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        z-index: 100;
+        height: 90vh;
+    }
+
+    .sidebar {
+        width: 100%;
+        display: flex;
+        margin: 0 !important;
+    }
+
+    .container ul li {
+        font-weight: 500;
+        font-size: 20px;
+    }
+
+    .card {
+        border-radius: 50px;
+        margin: auto;
+        padding: 20px 60px;
+        background: transparent;
+        border: 0;
+        position: relative;
+    }
+
+    .card:before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 75%;
+        background: white;
+        z-index: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        border-radius: 50px;
+    }
+
+    .card img {
+        height: 300px;
+        border-radius: 50px;
+        align-content: center;
+        padding-top: 10px;
+        z-index: 2;
+    }
+
+    .card-body {
+        z-index: 2;
+    }
+
+    .card .btn {
+        width: 150px;
+    }
+
+    .flex-wrapper {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        align-content: flex-start;
+    }
+
+    .flex-wrapper .sidebar-wrap {
+        position: sticky;
+        top: 1%;
+        width: 20%;
+        padding: 30px 0;
+        border-top-right-radius: 25px;
+        border-bottom-right-radius: 25px;
+        background-color: white;
+    }
+
+    .flex-wrapper .left-part {
+        position: relative;
+        width: 80%;
+    }
+
+    .flex-wrapper .left-part .col {
+        width: 33%;
+        margin: 30px 0 100px;
+    }
+
+    .d-flex {
+        display: flex !important;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        width: 80%;
+    }
+
+    @media (min-width: 1200px) and (max-width: 1600px) {
+
+        .flex-wrapper .left-part .col {
+            width: 30%;
+            margin: 30px 10px 100px;
+        }
+
+        .card-title {
+            font-size: 21px !important;
+        }
+    }
+</style>
+<header>
+    <div class="container ">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid ">
+                <form method="GET" action="{% url 'search' %}">
+                    <div class="input-group rounded flex-nowrap">
+                        <input type="search" name="q" placeholder="Search" class="form-control rounded"
+                               style="height: 35px;width: 90px" aria-describedby="search-addon" value="{{ search_query }}">
+                        <button type="submit" class="input-group-text border-0" style="height: 35px;width: 40px"
+                                id="search-addon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-search" width="20"
+                                 height="20" style="width: 20px !important; height: 20px !important;"
+                                 viewBox="0 0 16 16">
+                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </form>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-center " id="navbarNavAltMarkup">
+                    <div class="navbar-nav justify-content-evenly align-items-center">
+                        <a class="nav-link" aria-current="page" href="{% url 'index' %}">Home</a>
+                        <a class="nav-link active" href="#">Shop</a>
+                        <a class="navbar-brand" href="{% url 'index' %}">Xela</a>
+                        <a class="nav-link" href="#">Categories</a>
+                        <a class="nav-link" href="#">About</a>
+                    </div>
+                </div>
+                <a href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16"
+                         width="40" height="40" style="width: 40px !important; height: 40px !important;">
+                        <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/>
+                    </svg>
+                </a>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<img src="{% static 'bgmen.png' %}" class="specialImage">
+<div class="flex-wrapper">
+    <div class="sidebar-wrap">
+        <div class="sidebar mt-5">
+
+            <div class="container ">
+
+                    <form id="filter-form" method="GET" action="#">
+                        <div class="categories">
+                            <p class="text-center" style="font-weight: bold;font-size: 20px;">Categories</p>
+                            <label for="categoriesFilter" class="fs-5" hidden="hidden"><b>Categories</b> </label>
+                            <ul>
+                                <li style="font-size: 18px"><input class="form-check-input me-2" type="checkbox" name="category" value="2" {% if 'Summer Season' in selected_category %}checked{% endif %}>Summer Season</input></li>
+                                <li style="font-size: 18px"><input class="form-check-input  me-2" type="checkbox" name="category" value="1" {% if 'Winter Season' in selected_category %}checked{% endif %}>Winter Season</input></li>
+                                <li style="font-size: 18px"><input class="form-check-input  me-2" type="checkbox" name="category" value="3" {% if 'Wedding' in selected_category %}checked{% endif %}>Wedding</input></li>
+                                <li style="font-size: 18px"><input class="form-check-input  me-2" type="checkbox" name="category" value="4" {% if 'Street Style' in selected_category %}checked{% endif %}>Street Style</input></li>
+                                <li style="font-size: 18px"><input class="form-check-input  me-2" type="checkbox" name="category" value="5"  {% if 'Fashionista' in selected_category %}checked{% endif %}>Fashionista</input></li>
+                            </ul>
+                        </div>
+                        <div class="size pt-1">
+                            <p class="text-center" style="font-weight: bold;font-size: 19px;">Filter by Size</p>
+                             <label for="sizeFilter" class="fs-5" hidden="hidden"><b>Filter by Size</b></label>
+                            <ul>
+                                <li style="font-size: 18px"><input class="form-check-input  me-2" type="checkbox" name="size" value="Large" {% if 'Large' in selected_size %}checked{% endif %}>Large</input></li>
+                                <li style="font-size: 18px"><input class="form-check-input  me-2" type="checkbox" name="size" value="Medium" {% if 'Medium' in selected_size %}checked{% endif %}>Medium</input></li>
+                                <li style="font-size: 18px"><input class="form-check-input me-2" type="checkbox" name="size" value="Small" {% if 'Small' in selected_size %}checked{% endif %}>Small</input></li>
+                            </ul>
+                        </div>
+
+                        <div class="price pt-2">
+                            <p class="mt-1 text-center" style="font-weight: bold;font-size: 19px;">Filter by Price</p>
+                            <ul>
+                                <label for="customRange1" class="form-label">Value: </label>
+                                <input type="range" class="form-range" id="customRange1" name="price">
+                            </ul>
+                        </div>
+                    <a href="{% url 'men' %}" class="text-center fs-5 d-flex justify-content-center w-100 p-1">X Clear</a>
+                        <div class="action text-center">
+                            <button type="submit" class="btn btn-dark rounded-pill mb-1" style="width: 100px;font-size: 20px">Filter</button>
+                        </div>
+                    </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="left-part align-items-center text-center">
+        <div class="d-flex" style="position: relative;">
+            {% for men_product in men_products %}
+                <div class="card">
+                    <img src="{{ men_product.photo.url }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ men_product.name }}</h5>
+                        <p class="card-text mb-5 fs-5">${{ men_product.price }}</p>
+                        <a href="{% url 'men_product_details' men_product.id %}">
+                            <button type="submit" class="btn btn-dark rounded-pill">view product</button>
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+
+            <div id="search-results">
+                {% if search_results %}
+                    {% for product in search_results %}
+                        <div class="card m-5">
+                            <img src="{{ product.photo.url }}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ product.name }}</h5>
+                                <p class="card-text mb-5 fs-5">${{ product.price }}</p>
+                                <form action="" method="POST">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="product_id" value="{{ product.id }}">
+                                    <a href="#">
+                                        <button type="submit" class="btn btn-dark rounded-pill">view product</button>
+                                    </a>
+                                </form>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <p style="font-size: 30px;text-align: center;margin-left: 400px;width: auto;display: none"
+                       class="pt-5">No results
+                        found.</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+</body>
+</html>

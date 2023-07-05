@@ -1,0 +1,252 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fenix&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Felipa&display=swap" rel="stylesheet">
+    <title>Xela`s Shopping</title>
+</head>
+<body>
+<style>
+    * {
+        overflow: hidden;
+    }
+
+    body {
+        background: rgb(244, 192, 192);
+        background: linear-gradient(90deg, rgba(244, 192, 192, 1) 0%, rgba(244, 192, 192, 1) 50%, rgba(198, 164, 164, 1) 50%, rgba(198, 164, 164, 1) 100%);
+        font-size: 16px;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .bg-body-tertiary {
+        background-color: transparent !important;
+    }
+
+    .navbar-brand {
+        font-size: 80px;
+        font-family: 'Fenix', serif;
+        margin: 0 !important;
+
+    }
+
+    .navbar-nav .nav-link {
+        padding: 10px 20px !important;
+    }
+
+    .navbar-collapse {
+        display: flex;
+    }
+
+    .navbar svg {
+        width: 120px;
+        height: 40px;
+    }
+
+    .navbar-nav{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-around;
+        width: 100%;
+    }
+
+    .nav-link {
+        font-size: 24px;
+        font-weight: 500;
+
+    }
+
+    .nav-link.active {
+        font-weight: 600;
+    }
+
+    .main {
+        min-height: calc(100vh - 150px);
+
+    }
+
+    .bg-text {
+        font-size: 280px;
+        position: absolute;
+        z-index: -3;
+        bottom: 35%;
+        left: 13%;
+        font-family: 'Felipa', cursive;
+    }
+
+    .store p {
+        font-size: 20px;
+    }
+
+    .username {
+        position: fixed;
+        color: black !important;
+        left: -1% !important;
+        top: 5% !important;
+        font-size: 25px !important;
+        width: 100px !important;
+        height: 100px !important;
+    }
+
+    .login {
+        font-size: 25px !important;
+        position: fixed !important;
+        top: 6% !important;
+        left: 4% !important;
+        color: black;
+    }
+
+    .menu {
+        font-size: 16px !important;
+        position: fixed !important;
+        left: 3% !important;
+        top: 10% !important;
+        background-color: transparent !important;
+        border: none !important;
+    }
+
+    @media (min-width: 1000px) and (max-width: 1600px) {
+
+        .bg-text {
+            font-size: 220px;
+            position: absolute;
+            z-index: -3;
+            top: 13%;
+            bottom: 50%;
+            left: 8%;
+            font-family: 'Felipa', cursive;
+            margin: 0 auto;
+            right: 5%;
+            text-align: center;
+        }
+
+        .store {
+            padding-bottom: 0 !important;
+        }
+
+        .store p {
+            font-size: 18px !important;
+        }
+
+        .navbar-brand {
+            font-size: 75px;
+            font-family: 'Fenix', serif;
+            margin: 0 !important;
+            position: relative;
+
+        }
+
+        .login {
+            font-size: 18px !important;
+            position: fixed !important;
+            top: 8% !important;
+        }
+
+        .username {
+            position: fixed;
+            left: -4% !important;
+            top: 8% !important;
+            font-size: 15px !important;
+        }
+
+         .menu {
+        font-size: 13px !important;
+        position: fixed !important;
+        left: 2% !important;
+        top: 12% !important;
+        background-color: transparent !important;
+        border: none !important;
+             width: 50px !important;
+    }
+        .menu  a{
+             width: 100px !important;
+    }
+
+    }
+
+</style>
+<header>
+    <div class="container p-0">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary p-0">
+            <div class="container-fluid ">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                </svg>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-center " id="navbarNavAltMarkup">
+                    <div class="navbar-nav justify-content-evenly align-items-center text-center">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link" href="#" style="margin-right: 50px">Shop</a>
+                        <a class="nav-link navbar-logo" href="#" style="font-size: 70px;
+        font-family: 'Fenix', serif;margin: 0 !important;padding: 0 !important;">Xela</a>
+                        <a class="nav-link" href="#">Categories</a>
+                        <a class="nav-link" href="#">About</a>
+                    </div>
+                </div>
+                {% if user.is_authenticated %}
+                <h6 class="mt-2 fs-5">Hi {{user.username}}!,</h6>
+
+                    <a href="{% url 'logout' %}" class="p-1">Log out</a>
+                {% else %}
+                <a href="{% url 'login' %}">
+                    <button type="submit" class="btn btn-dark rounded-pill" style="width: 120px">Log in</button>
+                </a>
+                {% endif %}
+            </div>
+        </nav>
+    </div>
+</header>
+<div class="main px-5 d-flex align-items-end" data-title="New Fashion">
+    <div class="bg-text">New Fashion</div>
+    <div class="row align-items-end">
+        <div class="col-5 text-left pb-5 col-md-4 p-1">
+            <div class="store px-4 p-43">
+                <p style="font-size: 24px;padding-right: 10px;">Elevate your wardrobe with our stunning women's
+                    collection. From elegant dresses to trendy separates, we have everything you need to be cool!</p>
+                <div class="text-center pt-5">
+                    <a href="{% url 'women' %}" class="btn btn-dark rounded-pill"
+                       style="width: 180px;height: 50px;padding: 9px;font-size: 20px">Shop Women</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-2 d-flex justify-content-center  align-items-center col-md-4">
+            <img src="{% static 'bg.png' %}" alt=""
+                 style="height: 90vh;background-position: center; background-size: cover;z-index: -2;position: absolute;bottom: 0">
+        </div>
+        <div class="col-5 pb-5 col-md-4">
+            <div class="store px-4 p-5">
+                <p style="font-size: 25px;padding-left: 20px">Upgrade your style game with our premium men's collection.
+                    From sleek suits to casual wear, we've got you covered for any occasion.</p>
+                <div class="text-center pt-5 ">
+                    <a href="{% url  'men' %}" class="btn btn-dark rounded-pill align-items-center"
+                       style="width: 180px;height: 50px;padding: 9px;font-size: 20px">Shop Men</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+</body>
+</html>
